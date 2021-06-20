@@ -9,7 +9,10 @@ const pagar = async (img, title, price, unit) => {
   };
 
   try {
-    const response = await fetch("http://localhost:3000/detail", options);
+    const response = await fetch(
+      "https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail",
+      options
+    );
     console.log(response);
   } catch (error) {
     console.log(error);
