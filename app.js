@@ -97,11 +97,11 @@ app.post("/detail", async (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/notification", async (req, res) => {
+app.post("/notification", async (req, res) => {
   const { method, body } = req;
 
   if (method === "POST") {
-    console.log("req.body:: ", req.body);
+    console.log("req.body:: ", body);
   }
 
   return res.status(200).json({ msg: "ok" });
