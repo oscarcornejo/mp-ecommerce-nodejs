@@ -103,8 +103,13 @@ app.post("/notification", (req, res) => {
 });
 
 app.get("/success", function (req, res) {
+  console.log(req);
+
   res.render("success", {
     titlePage: "Success",
+    payment_id: req.query.payment_id,
+    external_reference: req.query.external_reference,
+    preference_id: req.query.preference_id,
   });
 });
 
