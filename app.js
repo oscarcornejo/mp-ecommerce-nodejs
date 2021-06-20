@@ -38,9 +38,7 @@ app.get("/detail", function (req, res) {
   });
 });
 
-app.post("/detail", function (req, res) {
-  //   console.log("detail", req.body);
-
+app.post("/detail", async (req, res) => {
   const productImage = `${req.protocol}://${req.hostname}${req.body.img}`;
   const productPrice = req.body.price;
 
@@ -92,9 +90,6 @@ app.post("/detail", function (req, res) {
   mercadopago.preferences
     .create(preference)
     .then((response) => {
-      //   console.log(response);
-      //   res.redirect(response.body.init_point);
-      console.log(response.body.init_point);
       return res.status(200).json({
         url_redirect: `${response.body.init_point}`,
       });

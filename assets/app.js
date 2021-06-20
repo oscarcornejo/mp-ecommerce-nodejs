@@ -7,13 +7,15 @@ const pagar = async (img, title, price, unit) => {
     headers: { "Content-type": "application/json; charset=UTF-8" },
   };
 
-  try {
-    const response = await fetch(
-      "https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail",
-      options
-    );
-    window.location.href = response.url_redirect;
-  } catch (error) {
-    console.log(error);
-  }
+  await fetch("https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail", options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      //   console.log("data = ", data);
+      window.location.href = data.url_redirect;
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
 };
