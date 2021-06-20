@@ -1,5 +1,4 @@
 const pagar = async (img, title, price, unit) => {
-  console.log("pagar");
   const data = { img, title, price, unit };
 
   const options = {
@@ -9,11 +8,7 @@ const pagar = async (img, title, price, unit) => {
   };
 
   try {
-    const response = await fetch(
-      "https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail",
-      options
-    );
-    console.log(response);
+    await fetch("https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail", options);
   } catch (error) {
     console.log(error);
   }
