@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var cors = require("cors");
 
 const mercadopago = require("mercadopago");
 mercadopago.configure({
@@ -11,6 +12,8 @@ mercadopago.configure({
 var port = process.env.PORT || 3000;
 
 var app = express();
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
