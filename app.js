@@ -98,13 +98,11 @@ app.post("/detail", async (req, res) => {
 });
 
 app.post("/notification", (req, res) => {
-  console.log(req.body);
-  res.status(201);
+  console.log("req.body:: ", req.body);
+  res.status(200);
 });
 
 app.get("/success", function (req, res) {
-  console.log(req);
-
   res.render("success", {
     titlePage: "Success",
     payment_id: req.query.payment_id,
