@@ -93,7 +93,11 @@ app.post("/detail", function (req, res) {
     .create(preference)
     .then((response) => {
       //   console.log(response);
-      res.redirect(response.body.init_point);
+      //   res.redirect(response.body.init_point);
+      console.log(response.body.init_point);
+      return res.status(200).json({
+        url_redirect: `${response.body.init_point}`,
+      });
     })
     .catch((err) => console.log(err));
 });

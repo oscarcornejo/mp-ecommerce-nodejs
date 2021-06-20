@@ -8,7 +8,11 @@ const pagar = async (img, title, price, unit) => {
   };
 
   try {
-    await fetch("https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail", options);
+    const response = await fetch(
+      "https://oscarcornej-mp-commerce-nodejs.herokuapp.com/detail",
+      options
+    );
+    window.location.href = response.url_redirect;
   } catch (error) {
     console.log(error);
   }
